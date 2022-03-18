@@ -1,21 +1,16 @@
 #include "main.h"
 
 /**
-* more_numbers - print all numbers 0 through 14 ten tiems
+* print_line - Print a straight line in the terminal.
+* @n: numbers of lines.
 */
 
-void more_numbers(void)
+void print_line(int n)
 {
-int i;
-int x;
-for (x = 0; x < 10; x++)
+for (; n > 0; n--)
 {
-for (i = 0; i <= 14; i++)
-{
-if (i > 9)
-_putchar((i / 10) + '0');
-_putchar((i % 10) + '0');
+_putchar('_');
 }
+
 _putchar('\n');
-}
 }
