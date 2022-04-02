@@ -10,15 +10,19 @@
 
 int main(int argc, char *argv[])
 {
-int x, y;
+int rmult;
 
 if (argc != 3)
+{
 printf("Error\n");
+return (1);
+}
 else
 {
-x = strtol(argv[1], 0, 10);
-y = strtol(argv[2], 0, 10);
-printf("%d\n", x*y);
+rmult = atoi(argv[1]) * atoi(argv[2]);
+printf("%d\n", rmult);
 }
+
 return (0);
+}
   

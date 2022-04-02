@@ -1,55 +1,52 @@
-#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 /**
-*chartoint - function that checks array of characters for integers
-*@c: array of characters
-*Return: 0 if successful, -1 if it fails
+* _isdigit - Check for a digit (0 through 9).
+* @c: Charater to check
+* Return: 1 if c is a digit, return 0 otherwise.
 */
-int chartoint(char *c)
-{
-int num;
-char *ptr;
 
-num = strtol(c, &ptr, 10);
-if (ptr[0])
-return (-1);
-return (num);
+int _isdigit(int c)
+{
+if (c >= '0' && c <= '9')
+return (1);
+else
+return (0);
 }
 
 /**
-*main - function that multiplies two numbers
-*@argc: the size of the argv array, the number of command line arguments 
-*@argv: an arraay containing the program command line arguments 
-*Return: 0 if successful
+* main - Add the given numbers.
+* @argc: Number of arguments.
+* @argv: Array of arguments.
+* Return: 0 is succes.
 */
-
 int main(int argc, char *argv[])
 {
-int i, sum, check;
+int i, j, radd = 0;
+char *a = NULL;
 
-if (argc == 1)
+if (argc <= 2)
 {
 printf("0\n");
-return(0);
+return (0);
 }
-for(i = 1, sum = 0, i < argc; i++)
+
+for (i = 1; i < argc; i++)
 {
-check = chartoint(argv[i]);
-if (check > -1)
+a = argv[i];
+for (j = 0; a[j] != '\0'; j++)
 {
-if(INT_MAX - sum > check)
-sum += check;
-else
-check = -1;
-}
-if (check < 0)
+if (_isdigit(a[j]) != 1)
 {
 printf("Error\n");
-return(1);
+return (1);
 }
 }
-printf("%d\n", sum);
+radd += atoi(argv[i]);
+}
+
+printf("%d\n", radd);
+
 return (0);
 }
